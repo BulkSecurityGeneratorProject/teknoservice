@@ -1,0 +1,22 @@
+{
+    "jhipsterdemoApp": {
+        "contratto" : {
+            "home": {
+                "title": "Contrattos",
+                "createLabel": "Create a new Contratto",
+                "createOrEditLabel": "Create or edit a Contratto"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Contratto {{ id }}?"
+            },
+            "detail": {
+                "title": "Contratto"
+            },
+            "decorrenzaDate": "DecorrenzaDate",
+            "scadenzaDate": "ScadenzaDate",
+            "importo": "Importo",
+            "discountPercent": "DiscountPercent",
+            "cliente": "cliente"
+        }
+    }
+}

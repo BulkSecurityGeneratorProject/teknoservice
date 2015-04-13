@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="jhipsterdemoApp.contratto.detail.title">Contratto</span> {{contratto.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="jhipsterdemoApp.contratto.decorrenzaDate">DecorrenzaDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{contratto.decorrenzaDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="jhipsterdemoApp.contratto.scadenzaDate">ScadenzaDate</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{contratto.scadenzaDate}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="jhipsterdemoApp.contratto.importo">Importo</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{contratto.importo}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="jhipsterdemoApp.contratto.discountPercent">DiscountPercent</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{contratto.discountPercent}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="jhipsterdemoApp.contratto.cliente">cliente</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{contratto.cliente.id}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="contratto"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
