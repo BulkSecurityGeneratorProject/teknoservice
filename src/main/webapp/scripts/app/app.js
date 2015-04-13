@@ -46,7 +46,41 @@ angular.module('teknoservicedemoApp', ['LocalStorageModule', 'tmh.dynamicLocale'
         };
     })
     
-    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, 
+    		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, toastr) {
+    	
+    	toastr.options.closeButton = true;
+    	toastr.options.timeOut = 2 * 1000;
+    	
+    	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/); 
+    	
+    	//request/response interceptor
+    	$httpProvider.interceptors.push(function($q, toastr, $rootScope) {
+    	    return {
+    	      'request': function(config) {
+    	        console.log('I will send a request to the server');
+    	        toastr.info("sending...");
+    	        //$rootScope.loading = true;
+    	        return config; 
+    	      },
+
+    	      'response': function(response) {
+    	        // called if HTTP CODE = 2xx 
+    	        console.log('I got a sucessfull response from server');
+    	        toastr.info("sent...");
+    	        //$rootScope.loading = false;
+    	        return response;
+    	      },
+
+    	      'responseError': function(rejection) {
+    	        // called if HTTP CODE != 2xx
+    	        console.log('I got an error from server');
+    	        toastr.error(rejection.data.message)
+    	        //$rootScope.loading = false;
+    	        return $q.reject(rejection);
+    	      }
+    	    };
+    	  });
 
         //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
