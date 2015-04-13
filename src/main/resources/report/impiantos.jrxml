@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="impiantos" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f0468fb-0a8c-49ee-a8ba-826346b5d76e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\dev\\workspace\\workspaceJuno\\SpringDemo\\src\\resources\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="typeimpianto.typeImpiantoId" class="java.lang.String"/>
+	<field name="typeimpianto.descrizione" class="java.lang.String"/>
+	<field name="interventos" class="java.util.Collection"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement uuid="6ef6f315-5408-4b9e-bc8b-30718a5fb35f" x="0" y="0" width="27" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{typeimpianto.typeImpiantoId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e2b75110-d8cb-4004-b70b-4278d79db21a" x="27" y="0" width="260" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{typeimpianto.descrizione}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="56462515-12b7-4fc8-b115-fa8ca5c94ac3" x="27" y="20" width="528" height="18" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{interventos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "impiantos_interventos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

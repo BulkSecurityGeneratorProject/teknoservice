@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
+<!-- 2015-04-07T14:41:07 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="impiantos-1-interventos-1" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="fb7608be-7c85-4df9-a651-da131ee3322b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="attivitas" class="java.util.Collection"/>
+	<field name="typeintervento.typeInterventoId" class="java.lang.Integer"/>
+	<field name="typeintervento.descrizione" class="java.lang.String"/>
+	<field name="cadenzaMesi" class="java.lang.Integer"/>
+	<field name="numeroInterventi" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="28" height="20" uuid="e2ff36b3-1f74-455d-b034-54625bfc8996"/>
+				<textFieldExpression><![CDATA[$F{typeintervento.typeInterventoId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="0" width="289" height="20" uuid="ede7ff4f-8374-4de5-b1ce-f0d4f7548334"/>
+				<textFieldExpression><![CDATA[$F{typeintervento.descrizione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="328" y="0" width="69" height="20" uuid="cd2b6d62-3c0e-4d8e-b25e-08f223ffa0c2"/>
+				<text><![CDATA[Cadenza Mesi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="0" width="87" height="20" uuid="029605d5-fe32-4e6d-883f-4bd3d4a7bf1e"/>
+				<text><![CDATA[Numero Interventi]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="397" y="0" width="21" height="20" uuid="beee6a11-3fa1-4bbd-97ac-2c7bac8394a8"/>
+				<textFieldExpression><![CDATA[$F{cadenzaMesi}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="28" y="20" width="527" height="22" isRemoveLineWhenBlank="true" uuid="c0bd1990-b2da-4890-8934-b2789c7305bb"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{attivitas})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["report/impiantos-1-interventos-1-attivitas-1.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="518" y="0" width="22" height="20" uuid="3008631a-ff72-4b72-b257-994935963df9"/>
+				<textFieldExpression><![CDATA[$F{numeroInterventi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

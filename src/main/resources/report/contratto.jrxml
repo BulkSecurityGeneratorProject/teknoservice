@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.3.final using JasperReports Library version 6.0.3  -->
+<!-- 2015-04-02T14:21:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratto" language="groovy" pageWidth="595" pageHeight="892" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="70" bottomMargin="20" uuid="83ec7b81-2448-44b2-9316-c723f48c71b5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="240"/>
+	<subDataset name="dataset1" uuid="c889795f-3196-4bee-984f-6e546407c4ce">
+		<parameter name="REPORT_JR_BEAN_COLLECTION_DATASOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="typeimpianto.typeImpiantoId" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="typeimpianto.descrizione" class="java.lang.String"/>
+		<field name="impianto" class="com.mycompany.myapp.domain.Impianto">
+			<fieldDescription><![CDATA[_THIS]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="New Dataset 1" uuid="1b863b1e-970a-4bec-854b-9c6cbd3cffe4">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="typeimpianto" class="com.mycompany.myapp.domain.Typeimpianto">
+			<fieldDescription><![CDATA[typeimpianto]]></fieldDescription>
+		</field>
+		<field name="typeimpianto.typeImpiantoId" class="java.lang.String"/>
+		<field name="typeimpianto.descrizione" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\dev\\workspace\\workspaceJuno\\SpringDemo\\src\\resources\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="now" class="java.util.Date" isForPrompting="false">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="contratto.cliente.ragioneSociale" class="java.lang.String"/>
+	<parameter name="contratto.cliente.nome" class="java.lang.String"/>
+	<parameter name="contratto.cliente.cognome" class="java.lang.String"/>
+	<parameter name="contratto" class="com.mycompany.myapp.domain.Contratto">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="contratto.contrattoId" class="java.lang.String"/>
+	<field name="typeconsistenza.descrizione" class="java.lang.String"/>
+	<field name="impiantos" class="java.util.Collection"/>
+	<field name="typeconsistenza.typeConsistenzaId" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="455" y="-57" width="100" height="20" forecolor="#999999" uuid="5f43e0b2-5bab-48f4-a1e8-082ec575698d"/>
+				<text><![CDATA[www.teknoservice.it]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-3" width="555" height="1" uuid="ac9d27b7-3a33-4fdf-9cdc-0e23f62981fd"/>
+			</line>
+			<image>
+				<reportElement x="426" y="-36" width="129" height="31" uuid="b88e94ab-f926-401a-a6bc-996585fdc9f6"/>
+				<imageExpression><![CDATA["C:\\dev\\workspace\\workspaceJuno\\SpringDemo\\WebContent\\resources\\img\\headerLogo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="2" y="785" width="554" height="17" forecolor="#999999" uuid="843c9f93-7272-44e4-8a4b-6857bf150943"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Teknoservice s.r.l Sede legale: Via Gargano, 34 > 00141 Roma > P.iva 11194771009 > Tel. 06/94368197 > Fax 06/94368207 > info@tk-service.it]]></text>
+			</staticText>
+		</band>
+	</background>
+	<title>
+		<band height="641" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="20" width="45" height="20" uuid="3fff3d45-c845-4a1b-aafe-30fe61ebde0f"/>
+				<text><![CDATA[Roma li]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="46" y="20" width="100" height="20" uuid="37817ebf-3017-4391-a979-706aed422943"/>
+				<textFieldExpression><![CDATA[$P{now}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="20" width="47" height="20" uuid="672c81a5-fd8a-4b40-a641-41b691f3e760"/>
+				<text><![CDATA[Spett.le]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="327" y="40" width="229" height="20" isRemoveLineWhenBlank="true" uuid="4900e3ae-5de1-462d-85bf-1a46d58e9a8d"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getRagioneSociale()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="60" width="100" height="20" isRemoveLineWhenBlank="true" uuid="11cfcd32-5965-46ff-bbd0-48c843df152a"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getNome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="120" width="85" height="20" uuid="7c0c91f7-0f92-4acf-a6f4-45a9f0fe142b"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getContrattoId()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="120" width="60" height="20" uuid="894f5add-d672-4346-b88b-358a9860f00e"/>
+				<text><![CDATA[Contratto n°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="60" width="129" height="20" isRemoveLineWhenBlank="true" uuid="502b38cc-79ad-40d2-b4c3-59f081906b2d"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getCognome()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="80" width="229" height="20" isRemoveLineWhenBlank="true" uuid="047f9087-83cd-4339-8be7-566ee6641292"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getIndirizzo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="100" width="63" height="20" isRemoveLineWhenBlank="true" uuid="d735e654-e956-4ebe-81a6-d9edec2d5bde"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getCap()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="100" width="166" height="20" isRemoveLineWhenBlank="true" uuid="7b402420-e8ff-4f22-8d03-7362210794f9"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getCitta()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="140" width="61" height="20" uuid="24fe075c-bd07-4881-9b15-d29500421f63"/>
+				<text><![CDATA[Oggetto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="61" y="140" width="329" height="20" uuid="314e22b7-a6ad-4ab4-b651-f14cd6f39415"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getTypeoggetto().getDescrizione()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="214" y="189" width="140" height="20" uuid="97ee8bf2-3c56-48ff-a4fa-b84fd820800a"/>
+				<text><![CDATA[A seguito Vs. gradita richiesta]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="249" width="100" height="20" uuid="d1ae7b89-e605-496a-a030-8079d96639b1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="67" y="254" width="89" height="20" uuid="abc7f78c-5a41-4fd1-a009-885c2b0d5a55"/>
+				<text><![CDATA[Tecknoservice Srl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="254" width="381" height="20" uuid="96d8ef85-f8b5-4db7-ac98-88488d8029d7"/>
+				<text><![CDATA[con sede in via Gargano, 34 - 00141 Roma - di seguito denominata Contraente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="274" width="382" height="20" uuid="d7476bc5-394a-44c9-a240-11998ef1ded4"/>
+				<text><![CDATA[intende proporre a:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="61" y="306" width="100" height="20" uuid="2a1ba5dd-553c-413c-ac5a-1121256ab054"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="175" y="309" width="63" height="20" uuid="2549743e-7e0e-4792-8787-14c1f50d58f3"/>
+				<text><![CDATA[con sede in ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="329" width="380" height="20" uuid="da2c9da7-df40-48dc-9805-2887c209e9a9"/>
+				<text><![CDATA[di seguito denominata Committente, la presente offerta per:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="67" y="311" width="89" height="20" isRemoveLineWhenBlank="true" uuid="1c7a7c8b-56c7-434e-9fdd-3d6f617bf019"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getCliente().getRagioneSociale()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="369" width="555" height="103" forecolor="#000000" backcolor="#99FF99" uuid="976a9bb9-c847-4f0b-a350-bee2639d5a04"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="391" width="554" height="20" forecolor="#FFFFFF" uuid="6aa47429-3326-48aa-9a40-4f496b0a2dde"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contratto}.getTypecontratto().getDescrizione()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="411" width="554" height="20" forecolor="#FFFFFF" uuid="513ac52d-4bf5-4e9c-b21a-30de2cf814f5"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Installato presso l'immobile sito in]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="506" width="553" height="52" uuid="489ab0c3-132e-49a7-b712-a5d27b0a04f5"/>
+				<text><![CDATA[I tempi ed i modi cui saranno eseguite le operazioni di manutenzione preventiva sono di seguito descritte]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="116" y="431" width="339" height="20" forecolor="#FFFFFF" uuid="2fa50d34-2692-4eac-a40e-b00b32ccdeda"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{contratto}.getIndirizzoimmobile().getIndirizzo()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="29" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<subreport>
+				<reportElement x="17" y="20" width="538" height="21" isRemoveLineWhenBlank="true" uuid="f5157e43-818e-42cf-b503-50e4542543bc"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{impiantos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "impiantos.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="0" width="29" height="20" uuid="00fec965-b845-412b-a7e6-7ab1c21b4b2c"/>
+				<textFieldExpression><![CDATA[$F{typeconsistenza.typeConsistenzaId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="0" width="258" height="20" uuid="84f92096-9b26-458f-b752-29ff786447fa"/>
+				<textFieldExpression><![CDATA[$F{typeconsistenza.descrizione}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
