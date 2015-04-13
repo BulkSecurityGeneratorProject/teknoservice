@@ -1,22 +1,27 @@
 package org.mce.teknoservice.service;
 
-import org.mce.teknoservice.domain.User;
+import java.util.Locale;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.lang.CharEncoding;
+import org.mce.teknoservice.domain.Cliente;
+import org.mce.teknoservice.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.mail.internet.MimeMessage;
-import java.util.Locale;
 
 /**
  * Service for sending e-mails.
@@ -83,4 +88,23 @@ public class MailService {
         String subject = messageSource.getMessage("email.activation.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
     }
+    
+    @Async
+	public void sendContrattoEmail(Cliente cliente, byte[] pdfBytes) throws MessagingException {
+		log.debug("Sending contratto e-mail to '{}'", cliente.getCognome());
+
+		MimeMessage message = javaMailSender.createMimeMessage();
+
+		MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+		helper.setFrom("ceccarinimarco.dev@gmail.com");
+		helper.setTo(cliente.getEmail());
+		helper.setSubject("Contratto");
+		helper.setText("Contratto");
+
+		InputStreamSource is = new ByteArrayResource(pdfBytes);
+		helper.addAttachment("contratto.pdf", is, "application/pdf");
+
+		javaMailSender.send(message);
+	}
 }
