@@ -1,0 +1,19 @@
+{
+  "generator-jhipster": {
+    "baseName": "teknoservicedemo",
+    "packageName": "org.mce.teknoservice",
+    "packageFolder": "org/mce/teknoservice",
+    "authenticationType": "session",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "8",
+    "rememberMeKey": "8d704a42d41b88cde3f329c38370dd46ae3a31cd"
+  }
+}
