@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .controller('SettingsController', function ($scope, Principal, Auth) {
         $scope.success = null;
         $scope.error = null;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .factory('Auth', function Auth($rootScope, $state, $q, $translate, Principal, AuthServerProvider, Account, Register, Activate, Password, Tracker) {
         return {
             login: function (credentials, callback) {

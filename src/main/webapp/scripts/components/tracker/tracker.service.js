@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .factory('Tracker', function ($rootScope, $cookies, $http) {
         var stompClient = null;
         function sendActivity() {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('error', {

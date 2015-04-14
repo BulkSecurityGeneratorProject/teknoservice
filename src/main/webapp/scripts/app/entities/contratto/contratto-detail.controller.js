@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .controller('ContrattoDetailController', function ($scope, $stateParams, Contratto, Cliente) {
         $scope.contratto = {};
         $scope.load = function (id) {

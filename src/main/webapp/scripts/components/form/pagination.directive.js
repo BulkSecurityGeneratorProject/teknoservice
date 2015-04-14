@@ -1,8 +1,8 @@
 /* globals $ */
 'use strict';
 
-angular.module('teknoservicedemoApp')
-    .directive('teknoservicedemoAppPagination', function() {
+angular.module('teknoserviceApp')
+    .directive('teknoserviceAppPagination', function() {
         return {
             templateUrl: 'scripts/components/form/pagination.html'
         };

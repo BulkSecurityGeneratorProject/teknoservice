@@ -13,13 +13,14 @@
         <!-- build:css assets/styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
         <link rel="stylesheet" href="assets/styles/main.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="teknoservicedemoApp">
+    <body ng-app="teknoserviceApp">
         <!--[if lt IE 10]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -63,6 +64,7 @@
         <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
         <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+        <script src="bower_components/toastr/toastr.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -137,6 +139,7 @@
         <script src="scripts/app/entities/contratto/contratto.js"></script>
         <script src="scripts/app/entities/contratto/contratto.controller.js"></script>
         <script src="scripts/app/entities/contratto/contratto-detail.controller.js"></script>
+        
         <script src="scripts/components/entities/contratto/contratto.service.js"></script>
         <script src="scripts/components/entities/contratto/consistenza.service.js"></script>
         <script src="scripts/components/entities/contratto/typeConsistenza.service.js"></script>

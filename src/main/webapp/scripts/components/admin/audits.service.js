@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .factory('AuditsService', function ($http) {
         return {
             findAll: function () {

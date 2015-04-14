@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('contratto', {
@@ -8,7 +8,7 @@ angular.module('jhipsterdemoApp')
                 url: '/contratto',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'jhipsterdemoApp.contratto.home.title'
+                    pageTitle: 'teknoserviceApp.contratto.home.title'
                 },
                 views: {
                     'content@': {
@@ -35,7 +35,7 @@ angular.module('jhipsterdemoApp')
                 url: '/contratto/:id',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'jhipsterdemoApp.contratto.detail.title'
+                    pageTitle: 'teknoserviceApp.contratto.detail.title'
                 },
                 views: {
                     'content@': {
@@ -55,7 +55,7 @@ angular.module('jhipsterdemoApp')
                 url: '/contrattoedit/:id',
                 data: {
                     roles: ['ROLE_USER'],
-                    pageTitle: 'jhipsterdemoApp.contratto.detail.title'
+                    pageTitle: 'teknoserviceApp.contratto.detail.title'
                 },
                 views: {
                     'content@': {

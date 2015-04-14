@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp', ['LocalStorageModule', 'tmh.dynamicLocale',
+angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, ENV, VERSION) {
@@ -45,9 +45,9 @@ angular.module('teknoservicedemoApp', ['LocalStorageModule', 'tmh.dynamicLocale'
             }
         };
     })
-    
+    .constant('toastr', toastr)
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, 
-    		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, toastr) {
+    		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, $compileProvider, toastr) {
     	
     	toastr.options.closeButton = true;
     	toastr.options.timeOut = 2 * 1000;
@@ -56,6 +56,7 @@ angular.module('teknoservicedemoApp', ['LocalStorageModule', 'tmh.dynamicLocale'
     	
     	//request/response interceptor
     	$httpProvider.interceptors.push(function($q, toastr, $rootScope) {
+    	//$httpProvider.interceptors.push(function($q, $rootScope) {
     	    return {
     	      'request': function(config) {
     	        console.log('I will send a request to the server');

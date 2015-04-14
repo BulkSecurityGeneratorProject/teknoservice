@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .factory('TypeImpianto', function ($resource) {
         return $resource('api/typeimpianto/:id', {}, {
             'query': { method: 'GET', isArray: true},

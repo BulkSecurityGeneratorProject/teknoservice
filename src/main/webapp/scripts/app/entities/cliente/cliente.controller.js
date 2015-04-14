@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .controller('ClienteController', function ($scope, Cliente, Contratto, ParseLinks) {
         $scope.clientes = [];
         //$scope.contrattos = Contratto.query();

@@ -6,7 +6,7 @@ spring:
         active: dev
     datasource:
         dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-        url: jdbc:mysql://localhost:3306/teknoservicedemo
+        url: jdbc:mysql://localhost:3306/jhipsterdemo
         databaseName: 
         serverName: 
         username: root
@@ -21,9 +21,9 @@ spring:
         database: MYSQL
         openInView: false
         show_sql: true
-        generate-ddl: true
+        generate-ddl: false
         hibernate:
-            ddl-auto: update
+            ddl-auto: none
             naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
         properties:
             hibernate.cache.use_second_level_cache: true

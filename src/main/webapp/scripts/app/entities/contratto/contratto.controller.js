@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .controller('ContrattoController', function (
     		$scope, ParseLinks, $stateParams, $location, $sce, $window, $document,
     		Contratto, Cliente, Consistenza, Impianto, Intervento, Attivita,

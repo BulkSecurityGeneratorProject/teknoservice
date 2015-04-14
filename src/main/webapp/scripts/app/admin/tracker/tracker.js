@@ -1,4 +1,4 @@
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('tracker', {

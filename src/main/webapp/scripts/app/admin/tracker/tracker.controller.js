@@ -1,4 +1,4 @@
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .controller('TrackerController', function ($scope, $cookies, $http) {
         // This controller uses a Websocket connection to receive user activities in real-time.
 

@@ -4,10 +4,10 @@
     	<strong>Error</strong>{{error}}
     </div>
     
-    <h2 translate="jhipsterdemoApp.cliente.home.title">Cliente</h2>
+    <h2 translate="teknoserviceApp.cliente.home.title">Cliente</h2>
 
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveClienteModal" ng-click="clear()">
-        <span class="glyphicon glyphicon-flash"></span> <span translate="jhipsterdemoApp.cliente.home.createLabel">Create a new Cliente</span>
+        <span class="glyphicon glyphicon-flash"></span> <span translate="teknoserviceApp.cliente.home.createLabel">Create a new Cliente</span>
     </button>
     <div class="modal fade" id="saveClienteModal" tabindex="-1" role="dialog" aria-labelledby="myClienteLabel"
          aria-hidden="true">
@@ -18,7 +18,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myClienteLabel" translate="jhipsterdemoApp.cliente.home.createOrEditLabel">Create or edit a Cliente</h4>
+                        <h4 class="modal-title" id="myClienteLabel" translate="teknoserviceApp.cliente.home.createOrEditLabel">Create or edit a Cliente</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label translate="jhipsterdemoApp.cliente.cognome">Cognome</label>
+                            <label translate="teknoserviceApp.cliente.cognome">Cognome</label>
                             <input type="text" class="form-control" name="cognome"
                                    ng-model="cliente.cognome">
 
@@ -36,20 +36,20 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label translate="jhipsterdemoApp.cliente.nome">Nome</label>
+                            <label translate="teknoserviceApp.cliente.nome">Nome</label>
                             <input type="text" class="form-control" name="nome"
                                    ng-model="cliente.nome">
 
                         </div>
                         <div class="form-group">
-                            <label translate="jhipsterdemoApp.cliente.codiceFiscale">CodiceFiscale</label>
+                            <label translate="teknoserviceApp.cliente.codiceFiscale">CodiceFiscale</label>
                             <input type="text" class="form-control" name="codiceFiscale"
                                    ng-model="cliente.codiceFiscale">
 
                         </div>
 
 						<div class="form-group">
-                            <label translate="jhipsterdemoApp.cliente.email">Email</label>
+                            <label translate="teknoserviceApp.cliente.email">Email</label>
                             <input type="text" class="form-control" name="email"
                                    ng-model="cliente.email">
 
@@ -79,7 +79,7 @@
                         <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="jhipsterdemoApp.cliente.delete.question" translate-values="{id: '{{cliente.id}}'}">Are you sure you want to delete this Cliente?</p>
+                        <p translate="teknoserviceApp.cliente.delete.question" translate-values="{id: '{{cliente.id}}'}">Are you sure you want to delete this Cliente?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -99,10 +99,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="jhipsterdemoApp.cliente.cognome">Cognome</th>
-                    <th translate="jhipsterdemoApp.cliente.nome">Nome</th>
-                    <th translate="jhipsterdemoApp.cliente.codiceFiscale">CodiceFiscale</th>
-                    <th translate="jhipsterdemoApp.cliente.email">Email</th>
+                    <th translate="teknoserviceApp.cliente.cognome">Cognome</th>
+                    <th translate="teknoserviceApp.cliente.nome">Nome</th>
+                    <th translate="teknoserviceApp.cliente.codiceFiscale">CodiceFiscale</th>
+                    <th translate="teknoserviceApp.cliente.email">Email</th>
                     <th></th>
                 </tr>
             </thead>

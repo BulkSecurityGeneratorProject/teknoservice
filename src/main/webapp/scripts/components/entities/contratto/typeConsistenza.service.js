@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jhipsterdemoApp')
+angular.module('teknoserviceApp')
     .factory('TypeConsistenza', function ($resource) {
         return $resource('api/typeconsistenza/:id', {}, {
             'query': { method: 'GET', isArray: true},

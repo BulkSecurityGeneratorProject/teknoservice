@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teknoservicedemoApp')
+angular.module('teknoserviceApp')
     .controller('MetricsController', function ($scope, MonitoringService) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;
