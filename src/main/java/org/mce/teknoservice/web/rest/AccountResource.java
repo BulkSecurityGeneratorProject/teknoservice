@@ -183,7 +183,7 @@ public class AccountResource {
     	queueRabbitTemplate.convertAndSend("myExchange", "foo.bar", "Hello, world!");
     	*/
     	rabbitTemplate.convertAndSend("spring-boot", "Hello from RabbitMQ!");
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+        //receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
 
         return userRepository.findOneByLogin(SecurityUtils.getCurrentLogin())
             .map(user -> new ResponseEntity<>(
