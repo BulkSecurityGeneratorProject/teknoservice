@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 
 import javax.inject.Inject;
 
-import org.mce.teknoservice.aop.logging.ReceiverQueue;
+import org.mce.teknoservice.aop.logging.ReceiverQueueAdvice;
 import org.mce.teknoservice.security.SecurityUtils;
 import org.mce.teknoservice.web.websocket.dto.ActivityDTO;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
@@ -22,7 +22,7 @@ public class Receiver {
 	 @Inject
 	 SimpMessageSendingOperations messagingTemplate;
 	 
-	 @ReceiverQueue
+	 @ReceiverQueueAdvice
 	 public void forwardReceivedMessage(String message) {
 			System.out.println("Send Received <" + message + ">");
 			

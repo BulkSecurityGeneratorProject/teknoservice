@@ -33,8 +33,8 @@ public class ForwardReceivedMessageAfterAspect {
         messagingTemplate.convertAndSend("/topic/tracker", activityDTO);
     }
     */
-    @Before("@annotation(org.mce.teknoservice.aop.logging.ReceiverQueue)")
-    public void myAdvice(){
+    @Before("@annotation(org.mce.teknoservice.aop.logging.ReceiverQueueAdvice)")
+    public void beforeReceiverQueueAdvice(){
         System.out.println("Executing myAdvice!!");
     }
 
