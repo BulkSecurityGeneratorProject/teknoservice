@@ -25,8 +25,11 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+         
         <div ui-view="navbar" ng-cloak=""></div>
         <div class="container">
+        	<state-loading-indicator></state-loading-indicator>
+        
             <div class="well" ui-view="content"></div>
 
             <div class="footer">
@@ -131,6 +134,8 @@
         <script src="scripts/app/admin/tracker/tracker.js"></script>
         <script src="scripts/app/admin/tracker/tracker.controller.js"></script>
         <script src="scripts/components/tracker/tracker.service.js"></script>
+        
+        <script src="scripts/components/util/stateLoadingIndicator.directive.js"></script>
         
         <script src="scripts/app/entities/cliente/cliente.js"></script>
         <script src="scripts/app/entities/cliente/cliente.controller.js"></script>
