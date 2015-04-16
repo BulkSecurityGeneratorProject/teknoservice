@@ -111,7 +111,7 @@ public class MailService {
     
     
     //@Scheduled(cron = "0 0 1 * * ?")
-    @Scheduled(fixedRate=60000)
+    //@Scheduled(fixedRate=60000)
     public void sendEmailRingrazimentoRinnovoContratto(){
     	log.debug("sendEmailRingrazimentoRinnovoContratto...");
     	this.sendEmail("ceccarinimarco@gmail.com", "xxx", "xxx", false, false);
