@@ -47,12 +47,23 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     })
     .constant('toastr', toastr)
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, 
-    		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider, $compileProvider, toastr) {
+    		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider,
+    		$compileProvider, $provide, toastr) {
     	
     	toastr.options.closeButton = true;
     	toastr.options.timeOut = 2 * 1000;
     	
-    	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/); 
+    	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/);
+
+    	// exception handling overriding
+    	$provide.decorator("$exceptionHandler", function($delegate, $injector){
+    		return function(exception, cause){
+    			//var $rootScope = $injector.get("$rootScope");
+    	        //$rootScope.addError({message:"Exception", reason:exception});
+    			toastr.error(exception.message);
+    	        $delegate(exception, cause);
+    	    };
+    	});
     	
     	//request/response interceptor
     	$httpProvider.interceptors.push(function($q, toastr, $rootScope) {
