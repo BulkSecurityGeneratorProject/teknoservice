@@ -19,6 +19,7 @@ import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -107,4 +108,13 @@ public class MailService {
 
 		javaMailSender.send(message);
 	}
+    
+    
+    //@Scheduled(cron = "0 0 1 * * ?")
+    @Scheduled(fixedRate=60000)
+    public void sendEmailRingrazimentoRinnovoContratto(){
+    	log.debug("sendEmailRingrazimentoRinnovoContratto...");
+    	this.sendEmail("ceccarinimarco@gmail.com", "xxx", "xxx", false, false);
+    	log.debug("sendEmailRingrazimentoRinnovoContratto.");
+    }
 }
