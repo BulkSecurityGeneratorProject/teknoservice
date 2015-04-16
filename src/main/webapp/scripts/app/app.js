@@ -56,11 +56,16 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/);
 
     	// exception handling overriding
-    	$provide.decorator("$exceptionHandler", function($delegate, $injector){
+    	$provide.decorator("$exceptionHandler", function($delegate, $injector ){
     		return function(exception, cause){
     			//var $rootScope = $injector.get("$rootScope");
     	        //$rootScope.addError({message:"Exception", reason:exception});
     			toastr.error(exception.message);
+    			toastr.error(exception.stack);
+    			
+    			var remoteLogsService = $injector.get("RemoteLogsService"); 
+    			remoteLogsService.error(exception.stack);
+    			
     	        $delegate(exception, cause);
     	    };
     	});

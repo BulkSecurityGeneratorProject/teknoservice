@@ -2,8 +2,11 @@ package org.mce.teknoservice.web.rest;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
+
 import com.codahale.metrics.annotation.Timed;
+
 import org.mce.teknoservice.web.rest.dto.LoggerDTO;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,6 +22,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class LogsResource {
 
+	private final Logger log = LoggerFactory.getLogger(LogsResource.class);
+	
     @RequestMapping(value = "/logs",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
@@ -39,5 +44,13 @@ public class LogsResource {
     public void changeLevel(@RequestBody LoggerDTO jsonLogger) {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
         context.getLogger(jsonLogger.getName()).setLevel(Level.valueOf(jsonLogger.getLevel()));
+    }
+    
+    @RequestMapping(value = "/logs/error",
+            method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Timed
+    public void changeLevel(@RequestBody String stacktrace) {
+        log.error(stacktrace);
     }
 }
