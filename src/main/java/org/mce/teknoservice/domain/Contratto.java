@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -203,4 +204,19 @@ public class Contratto implements Serializable {
                 ", discountPercent='" + discountPercent + "'" +
                 '}';
     }
+    
+    // follows Helper
+    @Transient
+    private ContrattoSearch search;
+
+	public ContrattoSearch getSearch() {
+		return search;
+	}
+
+	public void setSearch(ContrattoSearch search) {
+		this.search = search;
+	}
+    
+    
+     
 }

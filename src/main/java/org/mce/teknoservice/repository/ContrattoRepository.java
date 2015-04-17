@@ -2,13 +2,14 @@ package org.mce.teknoservice.repository;
 
 import org.mce.teknoservice.domain.Contratto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
  * Spring Data JPA repository for the Contratto entity.
  */
-public interface ContrattoRepository extends JpaRepository<Contratto,Long> {
+public interface ContrattoRepository extends JpaRepository<Contratto,Long>, JpaSpecificationExecutor  {
 
 	@Query("SELECT c FROM Contratto c"
 			+ " LEFT JOIN FETCH c.consistenzas cons"

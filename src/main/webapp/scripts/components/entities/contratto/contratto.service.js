@@ -4,6 +4,14 @@ angular.module('teknoserviceApp')
     .factory('Contratto', function ($resource, $sce, $window) {
         return $resource('api/contrattos/:id', {}, {
             'query': { method: 'GET', isArray: true},
+            'search': { 
+            	method: 'POST', 
+            	url : 'api/contrattos/search',
+            	isArray: true/*,
+            	transformRequest: function (data) {
+            		 retruun data;
+            	}*/
+             },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

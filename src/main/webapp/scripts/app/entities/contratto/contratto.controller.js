@@ -9,6 +9,9 @@ angular.module('teknoserviceApp')
         $scope.contrattos = [];
         $scope.clientes = Cliente.query();
         $scope.page = 1;
+        $scope.contratto = {decorrenzaDate: null, scadenzaDate: null, importo: null, discountPercent: null, id: null,
+        		search : { scadenzaDateBegin: null, scadenzaDateEnd: null, importoBegin: null, importoEnd: null } 
+        };
         
         $scope.$on('broadcast.init.all', function(event, data) {
             $scope.loadAll();
@@ -19,8 +22,16 @@ angular.module('teknoserviceApp')
         });
         
         $scope.loadAll = function() {
-            Contratto.query({page: $scope.page, per_page: 20}, function(result, headers) {
+            Contratto.query({page: $scope.page, per_page: 20},
+            		function(result, headers) {
                 $scope.links = ParseLinks.parse(headers('link'));
+                $scope.contrattos = result;
+            });
+        };
+        
+        $scope.search = function(contratto) {
+            Contratto.search( contratto ,
+            		function(result) {
                 $scope.contrattos = result;
             });
         };

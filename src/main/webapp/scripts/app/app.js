@@ -76,7 +76,7 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	    return {
     	      'request': function(config) {
     	        console.log('I will send a request to the server');
-    	        toastr.info("sending...");
+    	        //toastr.info("sending...");
     	        //$rootScope.loading = true;
     	        $rootScope.$broadcast('broadcast.loading.begin');
     	        
@@ -86,7 +86,7 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	      'response': function(response) {
     	        // called if HTTP CODE = 2xx 
     	        console.log('I got a sucessfull response from server');
-    	        toastr.info("sent...");
+    	        //toastr.info("sent...");
     	        //$rootScope.loading = false;
     	        
     	        $rootScope.$broadcast('broadcast.loading.end');

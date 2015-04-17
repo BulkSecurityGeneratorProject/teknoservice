@@ -21,6 +21,7 @@ import org.mce.teknoservice.domain.Typeimpianto;
 import org.mce.teknoservice.domain.Typeintervento;
 import org.mce.teknoservice.repository.AttivitaRepository;
 import org.mce.teknoservice.repository.ConsistenzaRepository;
+import org.mce.teknoservice.repository.ContrattoExampleSpecification;
 import org.mce.teknoservice.repository.ContrattoRepository;
 import org.mce.teknoservice.repository.ImpiantoRepository;
 import org.mce.teknoservice.repository.InterventoRepository;
@@ -93,7 +94,7 @@ public class ContrattoResource {
 
 	@Inject
 	private TypeAttivitaRepository typeAttivitaRepository;
-
+	
     /**
      * POST  /contrattos -> Create a new contratto.
      */
@@ -108,6 +109,17 @@ public class ContrattoResource {
         }
         contrattoRepository.save(contratto);
         return ResponseEntity.created(new URI("/api/contrattos/" + contratto.getId())).build();
+    }
+    
+    @RequestMapping(value = "/contrattos/search",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Contratto>> search(@RequestBody Contratto contratto) throws URISyntaxException {
+    	log.debug("REST request to search Contratto : {}", contratto);
+    	ContrattoExampleSpecification contrattoExampleSpecification = new ContrattoExampleSpecification(contratto);
+    	Page<Contratto> page = contrattoRepository.findAll(contrattoExampleSpecification, PaginationUtil.generatePageRequest(0, 20));
+        return new ResponseEntity<>(page.getContent(), HttpStatus.OK);  
     }
 
     /**
@@ -136,7 +148,10 @@ public class ContrattoResource {
     public ResponseEntity<List<Contratto>> getAll(@RequestParam(value = "page" , required = false) Integer offset,
                                   @RequestParam(value = "per_page", required = false) Integer limit)
         throws URISyntaxException {
-        Page<Contratto> page = contrattoRepository.findAll(PaginationUtil.generatePageRequest(offset, limit));
+    	log.debug("REST request to getAll Contratto" );
+    	/*ContrattoExampleSpecification contrattoExampleSpecification = new ContrattoExampleSpecification(contratto);
+    	Page<Contratto> page = contrattoRepository.findAll(contrattoExampleSpecification, PaginationUtil.generatePageRequest(offset, limit));
+        */Page<Contratto> page = contrattoRepository.findAll(PaginationUtil.generatePageRequest(offset, limit));
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/contrattos", offset, limit);
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
