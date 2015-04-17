@@ -145,3 +145,17 @@ ul#strength {
     width:20px;
 }
 /* end Password strength bar style */
+
+.loading{
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("../images/loading.gif");
+  background-position: left;
+  background-repeat: no-repeat;
+  text-align:right;
+}

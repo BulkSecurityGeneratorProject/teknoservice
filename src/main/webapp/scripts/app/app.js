@@ -78,6 +78,8 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	        console.log('I will send a request to the server');
     	        toastr.info("sending...");
     	        //$rootScope.loading = true;
+    	        $rootScope.$broadcast('broadcast.loading.begin');
+    	        
     	        return config; 
     	      },
 
@@ -86,6 +88,9 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	        console.log('I got a sucessfull response from server');
     	        toastr.info("sent...");
     	        //$rootScope.loading = false;
+    	        
+    	        $rootScope.$broadcast('broadcast.loading.end');
+    	        
     	        return response;
     	      },
 
@@ -94,6 +99,8 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	        console.log('I got an error from server');
     	        toastr.error(rejection.data.message)
     	        //$rootScope.loading = false;
+    	        
+    	        $rootScope.$broadcast('broadcast.loading.end');
     	        return $q.reject(rejection);
     	      }
     	    };
