@@ -203,16 +203,7 @@
                      	</div>
                      </div>
                      
-<script type="text/javascript">
-$(document).ready(function(){
-    $(".dropdown-toggle").dropdown('toggle');
-});  
-</script>
-<style>
-.input-append .btn.dropdown-toggle {
-    float: none;
-}
-</style>
+
                       
                      <div class="form-group">
                         <label translate="teknoserviceApp.cliente.cognome">Cognome</label>
@@ -222,13 +213,8 @@ $(document).ready(function(){
                       			
                       		<select ng-model="cliente.cognome" class="dropdown-menu" id="select1" multiple="multiple" style="z-index: 1000"
                       			ng-options="cliente.cognome as cliente.cognome for cliente in clientes"
-                      			ng-click="contratto.cliente.cognome = cliente.cognome">
-      							<option>One</option>
-							    <option>Two</option>
-							    <option>Three</option>
-							    <option>Siz</option>
-							    <option>Seven</option>
-							    <option>Nine</option>
+                      			ng-click="contratto.cliente.cognome = cliente.cognome[0]">
+      				
 							</select>		
                       	</div>	
                     </div>	

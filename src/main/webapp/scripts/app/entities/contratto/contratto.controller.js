@@ -10,6 +10,7 @@ angular.module('teknoserviceApp')
         $scope.clientes = Cliente.query();
         $scope.page = 1;
         $scope.contratto = {decorrenzaDate: null, scadenzaDate: null, importo: null, discountPercent: null, id: null,
+        		cliente: {cognome: null},
         		search : { scadenzaDateBegin: null, scadenzaDateEnd: null, importoBegin: null, importoEnd: null } 
         };
         

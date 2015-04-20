@@ -33,9 +33,9 @@ public class ContrattoExampleSpecification implements Specification<Contratto> {
 	  public Predicate toPredicate(Root<Contratto> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
 	    List<Predicate> predicates = new ArrayList<>();
 
-	   /* if (StringUtils.isNotBlank(example.getCliente().getCognome())) {
+	   if (StringUtils.isNotBlank(example.getCliente().getCognome())) {
 	      predicates.add(cb.like(cb.lower(root.get("cliente").get("cognome")), example.getCliente().getCognome().toLowerCase() + "%"));
-	    }*/
+	   }
 	    
 	    // date scadenza/decorrenza
 	    if (example.getSearch().getScadenzaDateBegin() != null && example.getSearch().getScadenzaDateEnd() != null) {
