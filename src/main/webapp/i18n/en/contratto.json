@@ -4,7 +4,8 @@
             "home": {
                 "title": "Contrattos",
                 "createLabel": "Create a new Contratto",
-                "createOrEditLabel": "Create or edit a Contratto"
+                "createOrEditLabel": "Create or edit a Contratto",
+                "searchLabel": "Search"
             },
             "delete": {
                 "question": "Are you sure you want to delete Contratto {{ id }}?"
