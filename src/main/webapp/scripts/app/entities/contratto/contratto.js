@@ -73,6 +73,7 @@ angular.module('teknoserviceApp')
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('contratto');
+                        $translatePartialLoader.addPart('cliente');
                         return $translate.refresh();
                     }]
                 }

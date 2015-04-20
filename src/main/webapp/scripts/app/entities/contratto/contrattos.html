@@ -185,6 +185,21 @@
                  <div class="panel-body">
                  	<div class="col-md-6">
                  	
+                 	
+                 	 <div class="form-group">
+                        <label translate="teknoserviceApp.cliente.cognome">Cognome</label>
+                        <div class="input-group">
+                      		<input data-toggle="dropdown" type="text" class="form-control" name="cognome" 
+                      			ng-model="contratto.cliente.cognome" ng-change="getClienti()">
+                      			
+                      		<select ng-model="cliente.cognome" class="dropdown-menu" id="select1" multiple="multiple" style="z-index: 1000"
+                      			ng-options="cliente.cognome as cliente.cognome for cliente in clientes"
+                      			ng-click="contratto.cliente.cognome = cliente.cognome[0]">
+      				
+							</select>		
+                      	</div>	
+                    </div>	
+                 	
       				  <div class="form-group">
                          <label translate="teknoserviceApp.contratto.scadenzaDate">ScadenzaDate</label>
                          <div class="input-group">
@@ -202,27 +217,18 @@
                          	<span class="input-group-addon">.00</span>
                      	</div>
                      </div>
-                     
 
-                      
-                     <div class="form-group">
-                        <label translate="teknoserviceApp.cliente.cognome">Cognome</label>
-                        <div class="input-group">
-                      		<input data-toggle="dropdown" type="text" class="form-control" name="cognome" 
-                      			ng-model="contratto.cliente.cognome" ng-change="getClienti()">
-                      			
-                      		<select ng-model="cliente.cognome" class="dropdown-menu" id="select1" multiple="multiple" style="z-index: 1000"
-                      			ng-options="cliente.cognome as cliente.cognome for cliente in clientes"
-                      			ng-click="contratto.cliente.cognome = cliente.cognome[0]">
-      				
-							</select>		
-                      	</div>	
-                    </div>	
-                       
-                     
                     </div>
                     
                     <div class="col-md-6">
+                    
+                    	<div class="form-group">
+                         <label translate="teknoserviceApp.contratto.discountPercent">Sconto</label>
+                         <div class="input-group">
+                         	<span class="input-group-addon">&permil;</span>
+                         	<input type="number" class="form-control" name="discount" ng-model="contratto.discountPercent">
+                         </div>	
+                    	</div>
                     
                        	<div class="form-group">
                          <label translate="teknoserviceApp.contratto.scadenzaDate">ScadenzaDate</label>
@@ -243,14 +249,6 @@
                 	         </div>       
                      	</div>
                      	
-                     	<div class="form-group">
-                         <label translate="teknoserviceApp.contratto.discountPercent">Sconto</label>
-                         <div class="input-group">
-                         	<span class="input-group-addon">&permil;</span>
-                         	<input type="number" class="form-control" name="discount" ng-model="contratto.discountPercent">
-                         </div>	
-                    	</div>
-                    
                     </div>
 			</div>
 			<div class="panel-footer">
