@@ -1,5 +1,7 @@
 package org.mce.teknoservice.repository;
 
+import java.util.List;
+
 import org.mce.teknoservice.domain.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,5 +14,7 @@ public interface ClienteRepository extends JpaRepository<Cliente,Long> {
 	
 	@Query("SELECT c FROM Cliente c LEFT JOIN FETCH c.contrattos contr WHERE c.id = :id")
  	public Cliente findById(@Param("id") Long id);
+	
+	public List<Cliente> findByCognomeStartingWith(String cognonme);
 
 }

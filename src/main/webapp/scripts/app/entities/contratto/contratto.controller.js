@@ -243,4 +243,14 @@ angular.module('teknoserviceApp')
 
             });  
         };
+        
+        
+        $scope.getClienti = function(){
+        	Cliente.getClienti({cognome: $scope.contratto.cliente.cognome}, function(result) {
+        		$scope.clientes = result;
+        		/* $scope.$apply(function () {
+        			$scope.clientes = result;
+                });*/
+            });  
+        };
     });

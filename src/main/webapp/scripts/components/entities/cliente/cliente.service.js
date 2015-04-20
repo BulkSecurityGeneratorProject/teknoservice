@@ -11,6 +11,9 @@ angular.module('teknoserviceApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'getClienti': { 
+            	method: 'GET', isArray: true, url: 'api/clientes/clienti' 
+            }
         });
     });

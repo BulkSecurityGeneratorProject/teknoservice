@@ -85,6 +85,15 @@ public class ClienteResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/clientes", offset, limit);
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+    
+    @RequestMapping(value = "/clientes/clienti",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List<Cliente>> findByCognome(@RequestParam(value = "cognome" , required = true) String cognome ) throws URISyntaxException {
+        List<Cliente> list = clienteRepository.findByCognomeStartingWith(cognome);
+        return new ResponseEntity<List<Cliente>>(list, HttpStatus.OK);
+    }
 
     /**
      * GET  /clientes/:id -> get the "id" cliente.
