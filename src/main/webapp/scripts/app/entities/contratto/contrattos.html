@@ -264,6 +264,11 @@
 		</div>
 	 </div>
     </form>
+    
+    <div ui-view="chart">
+    	<canvas id="line" class="chart chart-line" data="data" labels="labels" 
+    	legend="true" series="series" click="onClick"></canvas>
+    </div>	 
 
     <div class="table-responsive">
         <table class="table table-striped">

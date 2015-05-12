@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
-    'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll'])
+    'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'infinite-scroll', 'chart.js'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Auth, Principal, Language, ENV, VERSION) {
-        $rootScope.ENV = ENV;
+
+    	$rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
+        
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
@@ -44,11 +46,23 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
+        
     })
     .constant('toastr', toastr)
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, 
     		tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider,
-    		$compileProvider, $provide, toastr) {
+    		$compileProvider, $provide, toastr, ChartJsProvider) {
+    	
+    	
+    	// Configure all charts
+        ChartJsProvider.setOptions({
+          colours: ['#FF5252', '#FF8A80'],
+          responsive: false
+        });
+        // Configure all line charts
+        ChartJsProvider.setOptions('Line', {
+          datasetFill: false
+        });
     	
     	toastr.options.closeButton = true;
     	toastr.options.timeOut = 2 * 1000;
@@ -56,7 +70,7 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blo??b):/);
 
     	// exception handling overriding
-    	$provide.decorator("$exceptionHandler", function($delegate, $injector ){
+    	$provide.decorator("$exceptionHandler", function($delegate, $injector, toastr ){
     		return function(exception, cause){
     			//var $rootScope = $injector.get("$rootScope");
     	        //$rootScope.addError({message:"Exception", reason:exception});
@@ -76,7 +90,7 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	    return {
     	      'request': function(config) {
     	        console.log('I will send a request to the server');
-    	        //toastr.info("sending...");
+    	        toastr.info("sending...");
     	        //$rootScope.loading = true;
     	        $rootScope.$broadcast('broadcast.loading.begin');
     	        
@@ -86,7 +100,7 @@ angular.module('teknoserviceApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     	      'response': function(response) {
     	        // called if HTTP CODE = 2xx 
     	        console.log('I got a sucessfull response from server');
-    	        //toastr.info("sent...");
+    	        toastr.info("sent...");
     	        //$rootScope.loading = false;
     	        
     	        $rootScope.$broadcast('broadcast.loading.end');

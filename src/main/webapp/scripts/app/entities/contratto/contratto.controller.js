@@ -91,8 +91,8 @@ angular.module('teknoserviceApp')
             	$scope.contratto.consistenzas = [];
             	$scope.contratto.consistenzas.push( result );
             });   
-            $scope.editForm.$setPristine();
-            $scope.editForm.$setUntouched();
+            //$scope.editForm.$setPristine();
+            //$scope.editForm.$setUntouched();
         };
         
         // remove consistenze:

@@ -14,7 +14,10 @@ angular.module('teknoserviceApp')
                     'content@': {
                         templateUrl: 'scripts/app/entities/contratto/contrattos.html',
                         controller: 'ContrattoController'
-                    }
+                    },
+                	"chart@contratto" : {
+                		controller: 'ContrattoChartController'
+                	}
                 },
                 onEnter: function($rootScope, $timeout, $stateParams) {
                     //used $timeout to load after controller gets initialized
