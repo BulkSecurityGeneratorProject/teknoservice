@@ -1,5 +1,7 @@
 package org.mce.teknoservice.repository;
 
+import java.util.List;
+
 import org.mce.teknoservice.domain.Contratto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -19,5 +21,11 @@ public interface ContrattoRepository extends JpaRepository<Contratto,Long>, JpaS
 			+ " WHERE c.id = :id")
 	//@EntityGraph(value = "Contratto.consistenzas", type = EntityGraphType.LOAD)
  	public Contratto findById(@Param("id") Long id);
+	
+	
+	@Query("SELECT count(c), sum(c.importo), concat( year(c.scadenzaDate), month(c.scadenzaDate) ) "
+			+ " FROM Contratto c"
+			+ " GROUP BY concat( year(c.scadenzaDate), month(c.scadenzaDate) )")
+ 	public List countSumImportoGroupingByMonthScadenza();
 	
 }

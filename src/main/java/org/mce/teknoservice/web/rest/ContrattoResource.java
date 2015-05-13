@@ -121,6 +121,16 @@ public class ContrattoResource {
     	Page<Contratto> page = contrattoRepository.findAll(contrattoExampleSpecification, PaginationUtil.generatePageRequest(0, 20));
         return new ResponseEntity<>(page.getContent(), HttpStatus.OK);  
     }
+    
+    @RequestMapping(value = "/contrattos/search/chart",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<List> searchChart(@RequestBody Contratto contratto) throws URISyntaxException {
+    	log.debug("REST request to search chart Contratto : {}", contratto);
+    	List chartData = contrattoRepository.countSumImportoGroupingByMonthScadenza();
+        return new ResponseEntity<>(chartData, HttpStatus.OK);  
+    }
 
     /**
      * PUT  /contrattos -> Updates an existing contratto.

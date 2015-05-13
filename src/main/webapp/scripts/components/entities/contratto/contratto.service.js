@@ -12,6 +12,11 @@ angular.module('teknoserviceApp')
             		 retruun data;
             	}*/
              },
+             'searchChart': { 
+             	method: 'POST', 
+             	url : 'api/contrattos/search/chart',
+             	isArray: true
+              },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
