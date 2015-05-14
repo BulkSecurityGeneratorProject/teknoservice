@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
         <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+		<link rel="stylesheet" href="bower_components/nvd3/nv.d3.css">
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
@@ -67,9 +68,15 @@
         <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
         <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+
         <script src="bower_components/toastr/toastr.js"></script>
+        
         <script src="bower_components/Chart.js/Chart.js"></script>
         <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+        
+        <script src="bower_components/d3/d3.js"></script>
+		<script src="bower_components/nvd3/nv.d3.js"></script> <!-- or use another assembly -->
+		<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -147,6 +154,7 @@
         <script src="scripts/app/entities/contratto/contratto.controller.js"></script>
         <script src="scripts/app/entities/contratto/contratto-detail.controller.js"></script>
         <script src="scripts/app/entities/contratto/contratto-chart.controller.js"></script>
+        <script src="scripts/app/entities/contratto/contratto-d3chart.controller.js"></script>
         
         <script src="scripts/components/entities/contratto/contratto.service.js"></script>
         <script src="scripts/components/entities/contratto/consistenza.service.js"></script>

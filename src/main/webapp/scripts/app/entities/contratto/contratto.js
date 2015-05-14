@@ -18,6 +18,10 @@ angular.module('teknoserviceApp')
                 	"chart@contratto" : {
                 		controller: 'ContrattoChartController'
                 	}
+                    ,
+                	"d3Chart@contratto" : {
+                		controller: 'ContrattoD3ChartController'
+                	}
                 },
                 onEnter: function($rootScope, $timeout, $stateParams) {
                     //used $timeout to load after controller gets initialized

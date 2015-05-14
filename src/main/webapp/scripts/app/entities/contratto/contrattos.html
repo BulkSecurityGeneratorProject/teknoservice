@@ -273,9 +273,10 @@
     	<canvas id="bar" class="chart chart-bar" data="data" labels="labels" 
     	legend="true" series="series" click="onClick"></canvas>
     	
-    	<canvas id="pie" class="chart chart-pie" data="data" labels="labels" 
-    	legend="true" series="series" click="onClick"></canvas>
-    	
+    </div>
+    
+	<div ui-view="d3Chart">	
+    	<nvd3 options="options" data="data"></nvd3>
     </div>	 
 
     <div class="table-responsive">

@@ -13,7 +13,7 @@ angular.module('teknoserviceApp')
     		  $scope.chartTable = result;
               
               angular.forEach($scope.chartTable, function(value, key) {
-            	  $scope.labels.push( value[2] +' - &euro; ' + value[1] );
+            	  $scope.labels.push( value[2] +' - € ' + value[1] );
             	  $scope.data[0].push( value[0] );
               });
           });
