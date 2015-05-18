@@ -3,6 +3,7 @@ package org.mce.teknoservice.web.rest;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -128,7 +130,20 @@ public class ContrattoResource {
     @Timed
     public ResponseEntity<List> searchChart(@RequestBody Contratto contratto) throws URISyntaxException {
     	log.debug("REST request to search chart Contratto : {}", contratto);
-    	List chartData = contrattoRepository.countSumImportoGroupingByMonthScadenza();
+    	//List chartData = contrattoRepository.countSumImportoGroupingByMonthScadenza();
+    	List<Contratto> contratti = contrattoRepository.findAll(new Sort("scadenzaDate"));
+    	
+    	
+    	List<Object[]> chartData = new ArrayList<Object[]>(); 
+    	for (Contratto contrattoz : contratti) {
+    		Object[] row = new Object[3];
+    		row[0] = 1;
+    		row[1] = contrattoz.getImporto();
+    		row[2] = contrattoz.getDecorrenzaDate();
+    		chartData.add(row);
+    		
+		}
+    	
         return new ResponseEntity<>(chartData, HttpStatus.OK);  
     }
 

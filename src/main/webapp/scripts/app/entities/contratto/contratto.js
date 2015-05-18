@@ -34,7 +34,7 @@ angular.module('teknoserviceApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('contratto');
                         return $translate.refresh();
-                    }]
+                    }],
                 }
             })
             .state('contrattoDetail', {
