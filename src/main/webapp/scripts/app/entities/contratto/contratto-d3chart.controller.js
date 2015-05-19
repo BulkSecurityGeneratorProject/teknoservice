@@ -2,7 +2,8 @@
 
 angular.module('teknoserviceApp')
 .controller('ContrattoD3ChartController',['$scope', '$timeout', 'Contratto', function ($scope, $timeout, Contratto) {
-	
+	   
+	// test
 	$scope.data = [
 	               {
 	                   "key" : "Quantity" ,
