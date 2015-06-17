@@ -26,7 +26,7 @@ public interface ContrattoRepository extends JpaRepository<Contratto,Long>, JpaS
 	@Query("SELECT count(c), sum(c.importo), c.scadenzaDate"
 			+ " FROM Contratto c"
 			+ " GROUP BY year(c.scadenzaDate), month(c.scadenzaDate) ")
- 	public List countSumImportoGroupingByMonthScadenza();
+ 	public List<Object[]> countSumImportoGroupingByMonthScadenza();
 	
 	
 }

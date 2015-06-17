@@ -130,7 +130,7 @@ public class ContrattoResource {
     @Timed
     public ResponseEntity<List> searchChart(@RequestBody Contratto contratto) throws URISyntaxException {
     	log.debug("REST request to search chart Contratto : {}", contratto);
-    	//List chartData = contrattoRepository.countSumImportoGroupingByMonthScadenza();
+    	//List<Object[]> chartData = contrattoRepository.countSumImportoGroupingByMonthScadenza();
     	List<Contratto> contratti = contrattoRepository.findAll(new Sort("scadenzaDate"));
     	
     	
