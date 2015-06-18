@@ -1,6 +1,5 @@
 package org.mce.teknoservice.config;
 
-import org.mce.teknoservice.web.rest.AccountResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -13,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile(Constants.SPRING_PROFILE_CLOUD)
+@Profile(Constants.SPRING_PROFILE_DEVELOPMENT)
 public class CloudRabbitConfiguration {
 	
 	private final Logger log = LoggerFactory.getLogger(CloudRabbitConfiguration.class);
