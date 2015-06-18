@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "baseName": "teknoservicedemo",
+    "baseName": "teknoservice",
     "packageName": "org.mce.teknoservice",
     "packageFolder": "org/mce/teknoservice",
     "authenticationType": "session",
