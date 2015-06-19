@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile(Constants.SPRING_PROFILE_DEVELOPMENT)
+@Profile(Constants.SPRING_PROFILE_CLOUD)
 public class CloudRabbitConfiguration {
 	
 	private final Logger log = LoggerFactory.getLogger(CloudRabbitConfiguration.class);
