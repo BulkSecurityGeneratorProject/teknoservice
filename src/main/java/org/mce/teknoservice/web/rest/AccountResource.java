@@ -167,8 +167,8 @@ public class AccountResource {
     @Autowired
    	RabbitTemplate rabbitTemplate;
        
-    @Autowired
-    Receiver receiver;
+    /*@Autowired MCE TEMP 4 RABBIT on heroku
+    Receiver receiver;*/
     
     @Autowired
     ConnectionFactory queueConnectionFactory;
