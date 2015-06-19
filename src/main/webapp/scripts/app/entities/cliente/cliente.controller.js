@@ -54,4 +54,7 @@ angular.module('teknoserviceApp')
             $scope.editForm.$setPristine();
             $scope.editForm.$setUntouched();
         };
+        
+        
+       
     });

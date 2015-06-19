@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+//@Configuration mce on disabling for herouku
 @AutoConfigureAfter(value = {CloudRabbitConfiguration.class, DevRabbitConfiguration.class})
 public class AMQConfiguration {
 
